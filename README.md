@@ -72,7 +72,7 @@ $$
 \mathbf{a}_t = \frac{\mathbf{F}_t}{m}
 $$
 
-
+Positions, velocities, energies, and temperature are recorded at each timestep.
 
 
 
