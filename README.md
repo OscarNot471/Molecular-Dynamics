@@ -25,10 +25,7 @@ We simulate a 3D face-centered cubic (FCC) lattice of copper atoms.
 
 Atoms interact through the classical Lennard–Jones pair potential:
 
-$$
-V(r) = 4\epsilon \left[ \left( \frac{\sigma}{r} \right)^{12}
-- \left( \frac{\sigma}{r} \right)^6 \right]
-$$
+$$ V(r) = 4\epsilon \left[ \left( \frac{\sigma}{r} \right)^{12} - \left( \frac{\sigma}{r} \right)^6 \right] $$
 
 Forces are computed as the analytical gradient of the potential.
 
