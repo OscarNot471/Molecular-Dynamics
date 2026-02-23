@@ -35,24 +35,24 @@ A cutoff radius is applied to reduce computational cost.
 
 The simulation proceeds as follows:
 
-** 1. Lattice Generation **
+**1. Lattice Generation**
    * Construction of an FCC crystal
    * Periodic boundary conditions (PBC) applied
    * Computation of (initial) pairwise scalar distances and distance vectors
-** 2. Force and Energy Calculation **
+**2. Force and Energy Calculation**
    * Lennard–Jones forces computed for all atom pairs within the cutoff radius
    * Potential energy calculated per atom and for the full lattice
 
 Under periodic boundary conditions, all atoms exhibit similar potential energy due to the absence of surface effects.
 
-** 3. Thermodynamic Initialization **
+**3. Thermodynamic Initialization**
    * Random velocity distribution generated
    * Center-of-mass velocity removed
    * Velocities rescaled to match a target temperature $$T_0 = 300 K$$
 
 This is an initialization step only, no thermostat is applied during dynamics
 
-** 4. Time Integration (Velocity-Verlet) **
+**4. Time Integration (Velocity-Verlet)**
 
 The system evolves according to:
 
@@ -74,5 +74,35 @@ $$
 
 Positions, velocities, energies, and temperature are recorded at each timestep.
 
+## Results
 
+The code produces:
 
+* 3D visualization of:
+  * Potential energy per atom
+  * Force vectors on each atom
+* Energy vs time:
+* Temperature vs time
+* .xyz trajectory file for OVITO visualization
+
+### Energy Conservation
+
+Kinetic and potential energies oscillate due to atomic vibrations, while the total energy remains approximately conserved, validating the integration scheme.
+
+For larger systems (e.g., $$N=5$$ per axis), small fluctuations appear due to numerical precision, but the total energy remains nearly constant.
+
+### Temperature Behaviour
+
+Since temperature is proportional to kinetic energy, it shows initial transient oscillations and then stabilizes around the target value.
+
+At $$300 K$$, atoms vibrate around equilibrium positions without breaking the crystal structure.
+
+### Visualization
+
+In the `results/` directory:
+
+- `trajectory.xyz` — OVITO-compatible trajectory file (full animation)
+- `molecular_dynamics_animation_short.gif` — 5-second preview (embedded above)
+- `molecular_dynamics_animation_long.gif` — 25-second longer animation (needs to be downloaded)
+
+This project represents a first-principles implementation of molecular dynamics and reproduces core elements of modern MD engines (pair potentials, thermodynamic initialization, Verlet integration, etc.). Although simplified (no thermostat, no neighbor lists), the physical model is realistic and serves as a foundation for more advanced simulations.
