@@ -14,4 +14,29 @@ In practical sessions 6 and 7, the objective was to implement from scratch a mol
 * Time integration via the Velocity-Verlet algorithm
 * Energy and temperature monitoring
 * Trajectory export for visualization in OVITO
+
 The implementation is fully vectorized (except for the time loop) and does not rely on external MD libraries.
+
+## Physical Model
+
+We simulate a 3D face-centered cubic (FCC) lattice of copper atoms.
+
+### Interaction Potential
+
+Atoms interact through the classical Lennard–Jones pair potential:
+
+$$
+V(r) = 4\epsilon \left[ \left( \frac{\sigma}{r} \right)^{12}
+- \left( \frac{\sigma}{r} \right)^6 \right]
+$$
+
+Forces are computed as the analytical gradient of the potential.
+
+A cutoff radius is applied to reduce computational cost.
+
+
+
+
+
+
+
