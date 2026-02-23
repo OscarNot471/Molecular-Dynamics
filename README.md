@@ -35,24 +35,24 @@ A cutoff radius is applied to reduce computational cost.
 
 The simulation proceeds as follows:
 
-**1. Lattice Generation**
+** 1. Lattice Generation **
    * Construction of an FCC crystal
    * Periodic boundary conditions (PBC) applied
    * Computation of (initial) pairwise scalar distances and distance vectors
-2. Force and Energy Calculation
+** 2. Force and Energy Calculation **
    * Lennard–Jones forces computed for all atom pairs within the cutoff radius
    * Potential energy calculated per atom and for the full lattice
 
 Under periodic boundary conditions, all atoms exhibit similar potential energy due to the absence of surface effects.
 
-3. Thermodynamic Initialization
+** 3. Thermodynamic Initialization **
    * Random velocity distribution generated
    * Center-of-mass velocity removed
    * Velocities rescaled to match a target temperature $$T_0 = 300 K$$
 
 This is an initialization step only, no thermostat is applied during dynamics
 
-4. Time Integration (Velocity-Verlet)
+** 4. Time Integration (Velocity-Verlet) **
 
 The system evolves according to:
 
