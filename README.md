@@ -35,7 +35,7 @@ A cutoff radius is applied to reduce computational cost.
 
 The simulation proceeds as follows:
 
-1. Lattice Generation
+$$\textbf{1. Lattice Generation}$$
    * Construction of an FCC crystal
    * Periodic boundary conditions (PBC) applied
    * Computation of (initial) pairwise scalar distances and distance vectors
